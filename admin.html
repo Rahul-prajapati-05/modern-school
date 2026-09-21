@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Dashboard - My Modern School</title>
+
+    <link
+        rel="stylesheet"
+        href="admin.css"
+    >
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         ADMIN APPLICATION
+    ====================================================== -->
+
+    <div id="adminApp">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+
+            <!-- School Logo -->
+
+            <div class="school-brand">
+
+                <div class="brand-logo">
+                    🏫
+                </div>
+
+                <div>
+                    <h2>My Modern School</h2>
+
+                    <p>
+                        School Management
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Admin Profile -->
+
+            <div class="admin-profile">
+
+                <div class="admin-avatar">
+                    👨‍💼
+                </div>
+
+                <div>
+
+                    <h3 id="adminName">
+                        School Administrator
+                    </h3>
+
+                    <p id="adminRole">
+                        Super Admin
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Navigation -->
+
+            <nav class="sidebar-nav">
+
+
+                <button
+                    type="button"
+                    class="menu-item active"
+                    data-section="dashboard"
+                >
+                    <span>📊</span>
+                    <span>Dashboard</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="students"
+                >
+                    <span>👨‍🎓</span>
+                    <span>Students</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="teachers"
+                >
+                    <span>👩‍🏫</span>
+                    <span>Teachers</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="parents"
+                >
+                    <span>👨‍👩‍👧</span>
+                    <span>Parents</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="classes"
+                >
+                    <span>🏫</span>
+                    <span>Classes & Sections</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="subjects"
+                >
+                    <span>📚</span>
+                    <span>Subjects</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="attendance"
+                >
+                    <span>✅</span>
+                    <span>Attendance</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="exams"
+                >
+                    <span>📝</span>
+                    <span>Exams & Results</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="fees"
+                >
+                    <span>💰</span>
+                    <span>Fees</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="timetable"
+                >
+                    <span>🕐</span>
+                    <span>Timetable</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="homework"
+                >
+                    <span>📖</span>
+                    <span>Homework</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="notices"
+                >
+                    <span>📢</span>
+                    <span>Notices</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="library"
+                >
+                    <span>📚</span>
+                    <span>Library</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="transport"
+                >
+                    <span>🚌</span>
+                    <span>Transport</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="hostel"
+                >
+                    <span>🏠</span>
+                    <span>Hostel</span>
+                </button>
+                <button
+    type="button"
+    class="menu-item"
+    onclick="loadHostelAllocations()"
+>
+    <span>🛏️</span>
+    <span>Bed Allocation</span>
+</button>
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="inventory"
+                >
+                    <span>📦</span>
+                    <span>Inventory</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="leave"
+                >
+                    <span>🗓️</span>
+                    <span>Leave</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="payroll"
+                >
+                    <span>💼</span>
+                    <span>Payroll</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="certificates"
+                >
+                    <span>📄</span>
+                    <span>Certificates</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="reports"
+                >
+                    <span>📊</span>
+                    <span>Reports</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="users"
+                >
+                    <span>👥</span>
+                    <span>Users & Permissions</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    class="menu-item"
+                    data-section="settings"
+                >
+                    <span>⚙️</span>
+                    <span>Settings</span>
+                </button>
+
+            </nav>
+
+
+            <!-- Sidebar Bottom -->
+
+            <div class="sidebar-bottom">
+
+                <button
+                    type="button"
+                    id="themeToggle"
+                    class="bottom-button"
+                >
+                    🌙
+                    <span>Dark Mode</span>
+                </button>
+
+
+                <button
+                    type="button"
+                    id="logoutButton"
+                    class="logout-button"
+                >
+                    🚪
+                    <span>Logout</span>
+                </button>
+
+            </div>
+
+
+        </aside>
+
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+        <main class="main-content">
+
+
+            <!-- Top Header -->
+
+            <header class="top-header">
+
+                <div>
+
+                    <h1 id="pageTitle">
+                        Dashboard
+                    </h1>
+
+                    <p id="pageSubtitle">
+                        School overview
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="notificationButton"
+                    class="notification-button"
+                    title="Notifications"
+                >
+                    🔔
+                </button>
+
+            </header>
+
+
+            <!-- =================================================
+                 CONTENT AREA
+            ================================================== -->
+
+            <section class="content-area">
+
+
+                <!-- Dashboard -->
+
+                <section
+                    id="dashboardSection"
+                    class="content-section active-section"
+                >
+
+                    <div class="welcome-card">
+
+                        <div>
+
+                            <span>
+                                ADMIN PANEL
+                            </span>
+
+                            <h2>
+                                Welcome back,
+                                <strong id="welcomeAdminName">
+                                    School Administrator
+                                </strong>
+                            </h2>
+
+                            <p>
+                                Manage your complete school
+                                from one place.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Statistics -->
+
+                    <div class="stats-grid">
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon">
+                                👥
+                            </div>
+
+                            <div>
+
+                                <p>Total Users</p>
+
+                                <h3 id="totalUsers">
+                                    0
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon">
+                                👨‍🎓
+                            </div>
+
+                            <div>
+
+                                <p>Students</p>
+
+                                <h3 id="totalStudents">
+                                    0
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon">
+                                👩‍🏫
+                            </div>
+
+                            <div>
+
+                                <p>Teachers</p>
+
+                                <h3 id="totalTeachers">
+                                    0
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon">
+                                👨‍👩‍👧
+                            </div>
+
+                            <div>
+
+                                <p>Parents</p>
+
+                                <h3 id="totalParents">
+                                    0
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon">
+                                🏫
+                            </div>
+
+                            <div>
+
+                                <p>Classes</p>
+
+                                <h3 id="totalClasses">
+                                    0
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon">
+                                💰
+                            </div>
+
+                            <div>
+
+                                <p>Fees Collected</p>
+
+                                <h3 id="totalFees">
+                                    ₹0
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- Quick Management -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <h2>
+                                    Quick Management
+                                </h2>
+
+                                <p>
+                                    Quickly access important
+                                    school modules.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="quick-grid">
+
+
+                            <button
+                                type="button"
+                                class="quick-card"
+                                data-section="students"
+                            >
+                                <span>👨‍🎓</span>
+
+                                <strong>
+                                    Manage Students
+                                </strong>
+
+                                <small>
+                                    Add and manage students
+                                </small>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="quick-card"
+                                data-section="teachers"
+                            >
+                                <span>👩‍🏫</span>
+
+                                <strong>
+                                    Manage Teachers
+                                </strong>
+
+                                <small>
+                                    Add and manage teachers
+                                </small>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="quick-card"
+                                data-section="attendance"
+                            >
+                                <span>✅</span>
+
+                                <strong>
+                                    Attendance
+                                </strong>
+
+                                <small>
+                                    Manage attendance
+                                </small>
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="quick-card"
+                                data-section="fees"
+                            >
+                                <span>💰</span>
+
+                                <strong>
+                                    Fees
+                                </strong>
+
+                                <small>
+                                    Manage school fees
+                                </small>
+
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+
+                <!-- =================================================
+                     GENERIC MODULE CONTAINER
+                ================================================== -->
+
+                <section
+                    id="moduleSection"
+                    class="content-section"
+                >
+
+                    <div class="module-header">
+
+                        <div>
+
+                            <span
+                                id="moduleLabel"
+                                class="module-label"
+                            >
+                                SCHOOL MANAGEMENT
+                            </span>
+
+                            <h2 id="moduleTitle">
+                                Module
+                            </h2>
+
+                            <p id="moduleDescription">
+                                Manage school information.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="moduleAddButton"
+                            class="primary-button"
+                        >
+                            + Add
+                        </button>
+                        <button
+    type="button"
+    id="libraryIssueButton"
+    class="primary-button"
+    style="display: none;"
+>
+    + Issue Book
+</button>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div
+                            id="moduleContent"
+                            class="module-content"
+                        >
+
+                            <div class="empty-state">
+
+                                <div class="empty-icon">
+                                    📋
+                                </div>
+
+                                <h3>
+                                    Loading module...
+                                </h3>
+
+                                <p>
+                                    Module data will appear here.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </section>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+    <!-- =====================================================
+         TOAST NOTIFICATION
+    ====================================================== -->
+
+    <div
+        id="toast"
+        class="toast"
+    ></div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>
