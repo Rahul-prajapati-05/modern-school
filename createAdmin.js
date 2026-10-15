@@ -29,6 +29,7 @@ async function createAdmin() {
             "admin@myschool.com";
 
         const adminPassword =
+            process.env.ADMIN_PASSWORD ||
             "Admin@12345";
 
 

@@ -6,6 +6,7 @@ const path = require("path");
 const multer = require("multer");
 
 const connectDatabase = require("./db");
+const initAdmin = require("./initAdmin");
 
 const authRoutes = require("./authRoutes");
 const studentRoutes = require("./studentRoutes");
@@ -383,6 +384,8 @@ async function startServer() {
     try {
 
         await connectDatabase();
+
+        await initAdmin();
 
         app.listen(
             PORT,
