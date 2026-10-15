@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - My Modern School</title>
+    <link rel="stylesheet" href="register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="register-page">
+
+        <div class="register-card">
+
+            <div class="school-icon">
+                🏫
+            </div>
+
+            <h1>Create Account</h1>
+            <p class="subtitle">Join My Modern School Portal</p>
+
+            <div id="registerMessage" class="message" role="alert"></div>
+
+            <form id="registerForm" novalidate>
+
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="name">Full Name <span class="required">*</span></label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="e.g. John Doe"
+                        required
+                        autocomplete="name"
+                    >
+                </div>
+
+                <!-- Email Address -->
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        required
+                        autocomplete="email"
+                    >
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-group">
+                    <label for="phone">Phone Number <span class="optional">(Optional)</span></label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="e.g. +91 9876543210"
+                        autocomplete="tel"
+                    >
+                </div>
+
+                <!-- Role Selector -->
+                <div class="form-group">
+                    <label>Select Role <span class="required">*</span></label>
+                    <div class="role-selector">
+                        <label class="role-option">
+                            <input type="radio" name="role" value="student" checked>
+                            <span class="role-card">
+                                <span class="role-icon">🎓</span>
+                                <span class="role-title">Student</span>
+                            </span>
+                        </label>
+
+                        <label class="role-option">
+                            <input type="radio" name="role" value="teacher">
+                            <span class="role-card">
+                                <span class="role-icon">👨‍🏫</span>
+                                <span class="role-title">Teacher</span>
+                            </span>
+                        </label>
+
+                        <label class="role-option">
+                            <input type="radio" name="role" value="parent">
+                            <span class="role-card">
+                                <span class="role-icon">👨‍👩‍👦</span>
+                                <span class="role-title">Parent</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Password Row -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password <span class="required">*</span></label>
+                        <div class="password-wrapper">
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Min 6 characters"
+                                required
+                                minlength="6"
+                                autocomplete="new-password"
+                            >
+                            <button type="button" class="toggle-password" data-target="password" aria-label="Toggle password visibility">👁️</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                        <div class="password-wrapper">
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="Re-enter password"
+                                required
+                                minlength="6"
+                                autocomplete="new-password"
+                            >
+                            <button type="button" class="toggle-password" data-target="confirmPassword" aria-label="Toggle confirm password visibility">👁️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terms -->
+                <div class="register-terms">
+                    <label>
+                        <input type="checkbox" id="agreeTerms" required>
+                        <span>I agree to the <a href="#" onclick="return false;">Terms of Service</a> &amp; <a href="#" onclick="return false;">Privacy Policy</a></span>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="registerButton">
+                    Create Account
+                </button>
+
+            </form>
+
+            <div class="register-footer">
+                <p>
+                    Already have an account?
+                    <a href="/login.html">Log In</a>
+                </p>
+                <a href="/" class="back-link">← Back to Home</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="register.js"></script>
+
+</body>
+
+</html>
