@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Portal - My Modern School</title>
+    <link rel="stylesheet" href="student.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="student-app">
+
+        <!-- Mobile Header Bar -->
+        <header class="mobile-topbar">
+            <button id="sidebarToggle" class="icon-btn" aria-label="Toggle Menu">☰</button>
+            <div class="mobile-brand">
+                <span>🏫</span>
+                <strong>Teacher Portal</strong>
+            </div>
+            <button id="mobileLogoutBtn" class="icon-btn" title="Logout">🚪</button>
+        </header>
+
+        <!-- Sidebar Navigation -->
+        <aside id="studentSidebar" class="sidebar">
+
+            <div class="sidebar-header">
+                <div class="school-brand">
+                    <div class="brand-icon">🏫</div>
+                    <div class="brand-text">
+                        <h2>Modern School</h2>
+                        <span>Teacher Portal</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Summary -->
+            <div class="student-profile-card">
+                <div class="avatar-wrapper">
+                    <span class="avatar-icon">👨‍🏫</span>
+                </div>
+                <div class="profile-info">
+                    <h3 id="sidebarTeacherName">Teacher</h3>
+                    <span class="badge-role">Teacher</span>
+                    <p id="sidebarTeacherEmail" class="student-email">teacher@myschool.com</p>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="sidebar-nav">
+                <button type="button" class="nav-item active" data-tab="dashboard">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-label">Dashboard</span>
+                </button>
+
+                <button type="button" class="nav-item" data-tab="homework">
+                    <span class="nav-icon">📖</span>
+                    <span class="nav-label">Homework</span>
+                </button>
+
+                <button type="button" class="nav-item" data-tab="attendance">
+                    <span class="nav-icon">✅</span>
+                    <span class="nav-label">Attendance</span>
+                </button>
+
+                <button type="button" class="nav-item" data-tab="timetable">
+                    <span class="nav-icon">📅</span>
+                    <span class="nav-label">Timetable</span>
+                </button>
+
+                <button type="button" class="nav-item" data-tab="notices">
+                    <span class="nav-icon">📢</span>
+                    <span class="nav-label">Notices</span>
+                </button>
+
+                <button type="button" class="nav-item" data-tab="profile">
+                    <span class="nav-icon">👤</span>
+                    <span class="nav-label">My Profile</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button type="button" id="logoutBtn" class="logout-btn">
+                    <span>🚪</span>
+                    <span>Sign Out</span>
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+
+            <!-- Top Navbar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1>Teacher Portal</h1>
+                    <p>Welcome to faculty dashboard</p>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="today-date-badge" id="currentDateBadge">Today</div>
+                    <div class="user-chip">
+                        <span class="chip-avatar">👨‍🏫</span>
+                        <span id="topTeacherName" class="chip-name">Teacher</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body">
+
+                <!-- Welcome Banner -->
+                <div class="welcome-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge">Faculty Workspace</span>
+                        <h2 id="welcomeTeacherHeading">Welcome, Teacher! 👋</h2>
+                        <p>Manage your assigned classes, create homework, track daily attendance, and post announcements.</p>
+                    </div>
+                    <div class="banner-graphic">📚</div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon-box bg-purple">📖</div>
+                        <div class="stat-details">
+                            <span class="stat-label">Homework Assigned</span>
+                            <h3 id="statTeacherHw">0</h3>
+                            <span class="stat-sub">Active tasks</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon-box bg-emerald">✅</div>
+                        <div class="stat-details">
+                            <span class="stat-label">Classes Today</span>
+                            <h3>4</h3>
+                            <span class="stat-sub text-success">Scheduled</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon-box bg-amber">📢</div>
+                        <div class="stat-details">
+                            <span class="stat-label">Notices</span>
+                            <h3 id="statTeacherNotices">0</h3>
+                            <span class="stat-sub">School alerts</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card" onclick="window.location.href='/admin'">
+                        <div class="stat-icon-box bg-blue">⚙️</div>
+                        <div class="stat-details">
+                            <span class="stat-label">Full Console</span>
+                            <h3>Admin</h3>
+                            <span class="stat-sub">Advanced portal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick actions -->
+                <div class="dashboard-columns">
+                    <div class="dashboard-panel">
+                        <div class="panel-header">
+                            <h3>📢 School Notices</h3>
+                        </div>
+                        <div id="teacherNoticeList" class="panel-list">
+                            <div class="loading-state">Loading notices...</div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-panel">
+                        <div class="panel-header">
+                            <h3>📖 Active Homework</h3>
+                        </div>
+                        <div id="teacherHomeworkList" class="panel-list">
+                            <div class="loading-state">Loading homework...</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const token = localStorage.getItem("school_auth_token");
+            const savedUserStr = localStorage.getItem("school_user");
+            if (!token || !savedUserStr) {
+                window.location.href = "/login.html";
+                return;
+            }
+
+            let user = {};
+            try { user = JSON.parse(savedUserStr); } catch (e) {}
+
+            const name = user.name || "Teacher";
+            const email = user.email || "";
+
+            const sidebarName = document.getElementById("sidebarTeacherName");
+            const sidebarEmail = document.getElementById("sidebarTeacherEmail");
+            const topName = document.getElementById("topTeacherName");
+            const welcomeHeading = document.getElementById("welcomeTeacherHeading");
+
+            if (sidebarName) sidebarName.textContent = name;
+            if (sidebarEmail) sidebarEmail.textContent = email;
+            if (topName) topName.textContent = name;
+            if (welcomeHeading) welcomeHeading.textContent = `Welcome, ${name}! 👋`;
+
+            const todayBadge = document.getElementById("currentDateBadge");
+            if (todayBadge) {
+                todayBadge.textContent = new Date().toLocaleDateString("en-US", { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+            }
+
+            function handleLogout() {
+                if (confirm("Are you sure you want to sign out?")) {
+                    localStorage.removeItem("school_auth_token");
+                    localStorage.removeItem("school_user");
+                    window.location.href = "/login.html";
+                }
+            }
+
+            const logoutBtn = document.getElementById("logoutBtn");
+            const mobileLogoutBtn = document.getElementById("mobileLogoutBtn");
+            if (logoutBtn) logoutBtn.addEventListener("click", handleLogout);
+            if (mobileLogoutBtn) mobileLogoutBtn.addEventListener("click", handleLogout);
+
+            // Fetch notices & homework
+            try {
+                const [noticesRes, hwRes] = await Promise.all([
+                    fetch("/api/notices", { headers: { "Authorization": `Bearer ${token}` } }),
+                    fetch("/api/homework", { headers: { "Authorization": `Bearer ${token}` } })
+                ]);
+
+                if (noticesRes.ok) {
+                    const data = await noticesRes.json();
+                    const list = data.data || [];
+                    document.getElementById("statTeacherNotices").textContent = list.length;
+                    const el = document.getElementById("teacherNoticeList");
+                    if (el) {
+                        el.innerHTML = list.length === 0 ? '<div class="empty-state">No circulars posted yet.</div>' : list.slice(0, 3).map(n => `
+                            <div class="panel-item">
+                                <div class="panel-item-header"><span class="panel-item-title">${n.title}</span></div>
+                                <p class="panel-item-desc">${n.content || n.description || ""}</p>
+                            </div>
+                        `).join("");
+                    }
+                }
+
+                if (hwRes.ok) {
+                    const data = await hwRes.json();
+                    const list = data.data || [];
+                    document.getElementById("statTeacherHw").textContent = list.length;
+                    const el = document.getElementById("teacherHomeworkList");
+                    if (el) {
+                        el.innerHTML = list.length === 0 ? '<div class="empty-state">No homework assigned yet.</div>' : list.slice(0, 3).map(h => `
+                            <div class="panel-item">
+                                <div class="panel-item-header"><span class="panel-item-title">${h.title}</span><span class="panel-item-badge">${h.subject?.name || "Subject"}</span></div>
+                                <p class="panel-item-desc">${h.description || ""}</p>
+                            </div>
+                        `).join("");
+                    }
+                }
+            } catch (e) {
+                console.error("Teacher portal data load error:", e);
+            }
+        });
+    </script>
+
+</body>
+
+</html>

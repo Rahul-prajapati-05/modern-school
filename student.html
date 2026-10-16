@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - My Modern School</title>
+    <link rel="stylesheet" href="student.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="studentApp" class="student-app">
+
+        <!-- Mobile Header Bar -->
+        <header class="mobile-topbar">
+            <button id="sidebarToggle" class="icon-btn" aria-label="Toggle Menu">☰</button>
+            <div class="mobile-brand">
+                <span>🏫</span>
+                <strong>Modern School</strong>
+            </div>
+            <button id="mobileLogoutBtn" class="icon-btn" title="Logout">🚪</button>
+        </header>
+
+        <!-- Sidebar Navigation -->
+        <aside id="studentSidebar" class="sidebar">
+
+            <div class="sidebar-header">
+                <div class="school-brand">
+                    <div class="brand-icon">🏫</div>
+                    <div class="brand-text">
+                        <h2>Modern School</h2>
+                        <span>Student Portal</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Student Profile Summary -->
+            <div class="student-profile-card">
+                <div class="avatar-wrapper">
+                    <span class="avatar-icon">🎓</span>
+                </div>
+                <div class="profile-info">
+                    <h3 id="sidebarStudentName">Student</h3>
+                    <span class="badge-role">Student</span>
+                    <p id="sidebarStudentEmail" class="student-email">student@myschool.com</p>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="sidebar-nav">
+                <button type="button" class="nav-item active" data-tab="dashboard">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-label">Dashboard</span>
+                </button>
+
+                <button type="button" class="nav-item" data-tab="homework">
+                    <span class="nav-icon">📖</span>
+                    <span class="nav-label">Homework</span>
+                    <span id="homeworkCountBadge" class="nav-badge">0</span>
+                </button>
+
+                <button type="button" class="nav-item" data-tab="timetable">
+                    <span class="nav-icon">📅</span>
+                    <span class="nav-label">Timetable</span>
+                </button>
+
+                <button type="button" class="nav-item" data-tab="attendance">
+                    <span class="nav-icon">✅</span>
+                    <span class="nav-label">Attendance</span>
+                </button>
+
+                <button type="button" class="nav-item" data-tab="results">
+                    <span class="nav-icon">📝</span>
+                    <span class="nav-label">Exams &amp; Results</span>
+                </button>
+
+                <button type="button" class="nav-item" data-tab="fees">
+                    <span class="nav-icon">💰</span>
+                    <span class="nav-label">Fee Details</span>
+                </button>
+
+                <button type="button" class="nav-item" data-tab="notices">
+                    <span class="nav-icon">📢</span>
+                    <span class="nav-label">Notices</span>
+                    <span id="noticeCountBadge" class="nav-badge">0</span>
+                </button>
+
+                <button type="button" class="nav-item" data-tab="profile">
+                    <span class="nav-icon">👤</span>
+                    <span class="nav-label">My Profile</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button type="button" id="logoutBtn" class="logout-btn">
+                    <span>🚪</span>
+                    <span>Sign Out</span>
+                </button>
+            </div>
+
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+
+            <!-- Top Navbar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1 id="pageHeading">Dashboard</h1>
+                    <p id="pageSubheading">Welcome back to your academic portal</p>
+                </div>
+
+                <div class="topbar-right">
+                    <div class="today-date-badge" id="currentDateBadge">Today</div>
+                    <button type="button" id="refreshBtn" class="action-btn" title="Refresh Data">🔄</button>
+                    <div class="user-chip">
+                        <span class="chip-avatar">🎓</span>
+                        <span id="topStudentName" class="chip-name">Student</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body">
+
+                <!-- TAB: DASHBOARD -->
+                <section id="tab-dashboard" class="tab-pane active">
+
+                    <!-- Hero Welcome Banner -->
+                    <div class="welcome-banner">
+                        <div class="banner-content">
+                            <span class="banner-badge">Academic Year 2026</span>
+                            <h2 id="welcomeHeading">Hello, Student! 👋</h2>
+                            <p>Here is an overview of your current progress, upcoming assignments, and school circulars.</p>
+                        </div>
+                        <div class="banner-graphic">🎯</div>
+                    </div>
+
+                    <!-- Metric Stats Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-card" data-tab-trigger="homework">
+                            <div class="stat-icon-box bg-purple">📖</div>
+                            <div class="stat-details">
+                                <span class="stat-label">Homework</span>
+                                <h3 id="statHomeworkCount">0</h3>
+                                <span class="stat-sub">Active assignments</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card" data-tab-trigger="attendance">
+                            <div class="stat-icon-box bg-emerald">✅</div>
+                            <div class="stat-details">
+                                <span class="stat-label">Attendance</span>
+                                <h3 id="statAttendancePercent">95%</h3>
+                                <span class="stat-sub text-success">Good Standing</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card" data-tab-trigger="results">
+                            <div class="stat-icon-box bg-blue">📝</div>
+                            <div class="stat-details">
+                                <span class="stat-label">Results</span>
+                                <h3 id="statResultCount">0</h3>
+                                <span class="stat-sub">Published terms</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card" data-tab-trigger="notices">
+                            <div class="stat-icon-box bg-amber">📢</div>
+                            <div class="stat-details">
+                                <span class="stat-label">Notices</span>
+                                <h3 id="statNoticeCount">0</h3>
+                                <span class="stat-sub">Important updates</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Two-column Section: Recent Homework & Notices -->
+                    <div class="dashboard-columns">
+
+                        <!-- Recent Homework Card -->
+                        <div class="dashboard-panel">
+                            <div class="panel-header">
+                                <h3>📖 Recent Homework</h3>
+                                <button type="button" class="panel-link" data-tab-trigger="homework">View All →</button>
+                            </div>
+                            <div id="recentHomeworkList" class="panel-list">
+                                <div class="loading-state">Loading homework...</div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Notices Card -->
+                        <div class="dashboard-panel">
+                            <div class="panel-header">
+                                <h3>📢 Latest Notices</h3>
+                                <button type="button" class="panel-link" data-tab-trigger="notices">View All →</button>
+                            </div>
+                            <div id="recentNoticeList" class="panel-list">
+                                <div class="loading-state">Loading notices...</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- TAB: HOMEWORK -->
+                <section id="tab-homework" class="tab-pane">
+                    <div class="panel-container">
+                        <div class="section-title-row">
+                            <div>
+                                <h2>My Homework &amp; Assignments</h2>
+                                <p>Stay updated with subject assignments, instructions and submission deadlines</p>
+                            </div>
+                        </div>
+
+                        <div id="homeworkFullList" class="cards-grid">
+                            <div class="loading-state">Loading assignments...</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB: TIMETABLE -->
+                <section id="tab-timetable" class="tab-pane">
+                    <div class="panel-container">
+                        <div class="section-title-row">
+                            <div>
+                                <h2>Weekly Timetable</h2>
+                                <p>Class periods and subject schedules</p>
+                            </div>
+                        </div>
+
+                        <div id="timetableWrapper" class="timetable-card">
+                            <div class="loading-state">Loading timetable schedule...</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB: ATTENDANCE -->
+                <section id="tab-attendance" class="tab-pane">
+                    <div class="panel-container">
+                        <div class="section-title-row">
+                            <div>
+                                <h2>Attendance Overview</h2>
+                                <p>Track your academic attendance and monthly presence records</p>
+                            </div>
+                        </div>
+
+                        <div class="attendance-summary-cards">
+                            <div class="att-summary-card">
+                                <span class="att-num" id="attTotalDays">0</span>
+                                <span class="att-label">Total Days Tracked</span>
+                            </div>
+                            <div class="att-summary-card success">
+                                <span class="att-num" id="attPresentDays">0</span>
+                                <span class="att-label">Present</span>
+                            </div>
+                            <div class="att-summary-card danger">
+                                <span class="att-num" id="attAbsentDays">0</span>
+                                <span class="att-label">Absent</span>
+                            </div>
+                            <div class="att-summary-card info">
+                                <span class="att-num" id="attRate">100%</span>
+                                <span class="att-label">Overall Percentage</span>
+                            </div>
+                        </div>
+
+                        <div id="attendanceHistoryTable" class="table-container">
+                            <div class="loading-state">Loading attendance records...</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB: RESULTS -->
+                <section id="tab-results" class="tab-pane">
+                    <div class="panel-container">
+                        <div class="section-title-row">
+                            <div>
+                                <h2>Exams &amp; Report Cards</h2>
+                                <p>View examination results, subject-wise marks and overall performance</p>
+                            </div>
+                        </div>
+
+                        <div id="resultsWrapper" class="table-container">
+                            <div class="loading-state">Loading exam results...</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB: FEES -->
+                <section id="tab-fees" class="tab-pane">
+                    <div class="panel-container">
+                        <div class="section-title-row">
+                            <div>
+                                <h2>Fee Invoices &amp; Receipts</h2>
+                                <p>Academic fee structures, paid vouchers and outstanding dues</p>
+                            </div>
+                        </div>
+
+                        <div id="feesWrapper" class="table-container">
+                            <div class="loading-state">Loading fee records...</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB: NOTICES -->
+                <section id="tab-notices" class="tab-pane">
+                    <div class="panel-container">
+                        <div class="section-title-row">
+                            <div>
+                                <h2>School Notices &amp; Circulars</h2>
+                                <p>Official announcements, holiday lists and academic updates</p>
+                            </div>
+                        </div>
+
+                        <div id="noticesFullList" class="notices-timeline">
+                            <div class="loading-state">Loading circulars...</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TAB: PROFILE -->
+                <section id="tab-profile" class="tab-pane">
+                    <div class="panel-container max-w-700">
+                        <div class="section-title-row">
+                            <div>
+                                <h2>Student Profile</h2>
+                                <p>Your registered academic account details</p>
+                            </div>
+                        </div>
+
+                        <div class="profile-details-card">
+                            <div class="profile-header-banner">
+                                <div class="large-avatar">🎓</div>
+                                <div>
+                                    <h3 id="profileFullName">Student Name</h3>
+                                    <p id="profileRoleText">Enrolled Student</p>
+                                </div>
+                            </div>
+
+                            <div class="profile-grid">
+                                <div class="profile-field">
+                                    <label>Email Address</label>
+                                    <span id="profileEmail">-</span>
+                                </div>
+                                <div class="profile-field">
+                                    <label>Phone Number</label>
+                                    <span id="profilePhone">-</span>
+                                </div>
+                                <div class="profile-field">
+                                    <label>Role</label>
+                                    <span id="profileRole">Student</span>
+                                </div>
+                                <div class="profile-field">
+                                    <label>Status</label>
+                                    <span class="badge-status-active">Active</span>
+                                </div>
+                            </div>
+
+                            <div class="profile-actions">
+                                <button type="button" class="btn-secondary" onclick="window.location.href='/'">Go to Homepage</button>
+                                <button type="button" class="btn-danger" id="profileLogoutBtn">Log Out</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="student-dashboard.js"></script>
+
+</body>
+
+</html>

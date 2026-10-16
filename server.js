@@ -356,6 +356,44 @@ app.get(
 
 
 // =====================================================
+// STUDENT PORTAL PAGE
+// =====================================================
+
+app.get(
+    ["/student", "/student.html", "/students", "/students.html"],
+    function (req, res) {
+
+        res.sendFile(
+            path.join(
+                __dirname,
+                "student.html"
+            )
+        );
+
+    }
+);
+
+
+// =====================================================
+// TEACHER PORTAL PAGE
+// =====================================================
+
+app.get(
+    ["/teacher", "/teacher.html", "/teachers", "/teachers.html"],
+    function (req, res) {
+
+        res.sendFile(
+            path.join(
+                __dirname,
+                "teacher.html"
+            )
+        );
+
+    }
+);
+
+
+// =====================================================
 // 404 HANDLER
 // =====================================================
 
